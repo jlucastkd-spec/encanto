@@ -1,0 +1,8 @@
+.env
+.env.*
+!.env.example
+.dados
+dev-server.js
+scripts
+artifact.html
+index-completo.html
