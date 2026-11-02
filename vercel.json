@@ -1,9 +1,0 @@
-{
-  "functions": {
-    "api/**/*.js": { "includeFiles": "js/config.js" }
-  },
-  "headers": [
-    { "source": "/painel/sw.js", "headers": [{ "key": "Service-Worker-Allowed", "value": "/painel/" }, { "key": "Cache-Control", "value": "no-cache" }] },
-    { "source": "/api/(.*)", "headers": [{ "key": "Cache-Control", "value": "no-store" }] }
-  ]
-}
