@@ -606,6 +606,25 @@ body.is-ready .float-tag { opacity: 1; }
   .wa-float__label { display: none; }
   .toast { bottom: 90px; }
 }
+
+/* Abertura com a arte da marca (fundo recolorido nas cores do site) */
+.hero__poster { position: absolute; z-index: 0; pointer-events: none; top: 0; right: 0; bottom: 0; width: auto; aspect-ratio: 941 / 1672; max-width: 56%; overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 22%); mask-image: linear-gradient(to right, transparent 0%, #000 22%); }
+.hero__poster-img { position: absolute; inset: -6% 0; background: url("assets/fotos/abertura.jpg") center 46% / cover no-repeat; animation: posterIn 2.2s var(--ease-out) .4s both; }
+@keyframes posterIn { from { opacity: 0; } }
+.hero__poster::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(36,19,15,.85) 0, transparent 16%, transparent 70%, var(--cacau)); }
+.hero__visual { display: none; }
+.hero__grid { grid-template-columns: minmax(0, 620px); }
+.hero__glow--1 { opacity: .5; }
+@media (max-width: 880px) {
+  .hero { align-items: flex-end; padding-top: calc(min(150vw, 76svh) - 130px); }
+  .hero__poster { width: 100%; max-width: none; aspect-ratio: auto; bottom: auto; height: min(150vw, 76svh);
+    -webkit-mask-image: linear-gradient(to bottom, #000 62%, transparent 100%); mask-image: linear-gradient(to bottom, #000 62%, transparent 100%); }
+  .hero__poster::after { display: none; }
+  .hero__poster-img { inset: 0; background-position: center 42%; }
+  .hero__title { text-shadow: 0 4px 30px rgba(36,19,15,.8); }
+}
+@media (prefers-reduced-motion: reduce) { .hero__poster-img { animation: none; } }
 </style>
 </head>
 <body class="is-loading">
@@ -661,6 +680,7 @@ body.is-ready .float-tag { opacity: 1; }
     <!-- ============ HERO ============ -->
     <section class="hero" id="topo">
       <canvas class="hero__particles" aria-hidden="true"></canvas>
+      <div class="hero__poster" aria-hidden="true"><div class="hero__poster-img" data-parallax="0.12"></div></div>
       <div class="hero__bg" data-parallax="0.25" aria-hidden="true">
         <span class="hero__glow hero__glow--1"></span>
         <span class="hero__glow hero__glow--2"></span>
