@@ -617,12 +617,22 @@ body.is-ready .float-tag { opacity: 1; }
 .hero__grid { grid-template-columns: minmax(0, 620px); }
 .hero__glow--1 { opacity: .5; }
 @media (max-width: 880px) {
-  .hero { align-items: flex-end; padding-top: calc(min(150vw, 76svh) - 130px); }
-  .hero__poster { width: 100%; max-width: none; aspect-ratio: auto; bottom: auto; height: min(150vw, 76svh);
-    -webkit-mask-image: linear-gradient(to bottom, #000 62%, transparent 100%); mask-image: linear-gradient(to bottom, #000 62%, transparent 100%); }
+  .hero { align-items: flex-end; min-height: 0; padding-top: calc(min(96vw, 46vh) + 64px); padding-bottom: 80px; }
+  .hero__poster { top: 64px; bottom: auto; right: auto; left: 50%; transform: translateX(-50%);
+    height: min(96vw, 46vh); width: auto; max-width: none; aspect-ratio: 941 / 1672;
+    -webkit-mask-image: radial-gradient(closest-side, #000 78%, transparent 100%); mask-image: radial-gradient(closest-side, #000 78%, transparent 100%);
+    -webkit-mask-size: 130% 112%; mask-size: 130% 112%; -webkit-mask-position: center; mask-position: center; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; }
   .hero__poster::after { display: none; }
-  .hero__poster-img { inset: 0; background-position: center 42%; }
-  .hero__title { text-shadow: 0 4px 30px rgba(36,19,15,.8); }
+  .hero__poster-img { inset: 0; transform: none !important; background-position: center; background-size: cover; }
+  .hero__title { font-size: clamp(2.6rem, 12vw, 3.6rem); text-shadow: 0 4px 30px rgba(36,19,15,.8); }
+  .hero__copy { gap: 22px; }
+}
+/* Celular deitado: arte ao lado do texto, sem ocupar a tela toda */
+@media (max-width: 880px) and (orientation: landscape) {
+  .hero { align-items: center; padding-top: 90px; padding-bottom: 60px; }
+  .hero__poster { top: 0; bottom: 0; right: 0; left: auto; transform: none; height: auto; width: auto; aspect-ratio: 941 / 1672; max-width: 42%; -webkit-mask-size: auto; mask-size: auto;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 25%); mask-image: linear-gradient(to right, transparent 0%, #000 25%); }
+  .hero__grid { grid-template-columns: minmax(0, 56%); }
 }
 @media (prefers-reduced-motion: reduce) { .hero__poster-img { animation: none; } }
 </style>
